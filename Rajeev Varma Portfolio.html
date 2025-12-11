@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff">
+    
+    <!-- SEO Meta Tags -->
+    <title>Rajeev Varma - SQL Server DBA | MSSQL Database Administrator | Performance Tuning Expert</title>
+    <meta name="description" content="Rajeev Varma - Experienced SQL Server DBA with 4+ years specializing in MSSQL performance tuning, high availability, AWS RDS, and disaster recovery. Infosys DBA expert in Bengaluru.">
+    <meta name="keywords" content="SQL Server DBA, MSSQL DBA, SQL Database Administrator, Performance Tuning, AWS RDS, Always-On Availability, High Availability, Rajeev Varma, Database DBA, SQL Expert, Bengaluru DBA">
+    <meta name="author" content="Rajeev Varma">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    
+    <!-- Open Graph Meta Tags for Social Sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Rajeev Varma - SQL Server DBA | MSSQL Database Administrator">
+    <meta property="og:description" content="SQL Server DBA with 4+ years experience in performance tuning, high availability, and cloud databases. Expert in MSSQL, AWS RDS, and disaster recovery.">
+    <meta property="og:image" content="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/dfa3e950-65e7-4b7c-888a-1f37f3f5afd5">
+    <meta property="og:image:alt" content="Rajeev Varma - SQL Server DBA">
+    <meta property="og:url" content="https://rajeevvarma.com">
+    
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Rajeev Varma - SQL Server DBA">
+    <meta name="twitter:description" content="SQL Server DBA specializing in MSSQL performance tuning, high availability, AWS RDS.">
+    <meta name="twitter:image" content="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/dfa3e950-65e7-4b7c-888a-1f37f3f5afd5">
+    
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Rajeev Varma",
+      "title": "SQL Server Database Administrator",
+      "image": "https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/dfa3e950-65e7-4b7c-888a-1f37f3f5afd5",
+      "description": "Experienced SQL Server DBA with 4+ years in MSSQL performance tuning, high availability, AWS RDS, and disaster recovery",
+      "email": "rajeevvarmajagathabi@gmail.com",
+      "telephone": "+91-8886202601",
+      "jobTitle": "SQL Server DBA",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Infosys Ltd."
+      },
+      "areaServed": "India",
+      "knowsAbout": ["SQL Server", "MSSQL", "Database Administration", "Performance Tuning", "AWS RDS", "High Availability", "Always-On Availability Groups", "Disaster Recovery", "Query Optimization", "Database Clustering"]
+    }
+    </script>
+    
+    <style>
+        :root {
+            --color-bg: #ffffff;
+            --color-surface: #fafafa;
+            --color-text: #1a1a1a;
+            --color-text-secondary: #666666;
+            --color-primary: #ff8c00;
+            --color-primary-light: #ffa724;
+            --color-border: #f0f0f0;
+            --color-accent: #ff6b35;
+        }
+
+        [data-theme="dark"] {
+            --color-bg: #0a0a0a;
+            --color-surface: #1a1a1a;
+            --color-text: #ffffff;
+            --color-text-secondary: #b0b0b0;
+            --color-primary: #ff8c00;
+            --color-primary-light: #ffa724;
+            --color-border: #2a2a2a;
+            --color-accent: #ff6b35;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--color-border);
+            padding: 1rem 2rem;
+            transition: all 0.3s;
+        }
+
+        [data-theme="dark"] header {
+            background: rgba(10, 10, 10, 0.95);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+            transition: all 0.3s;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--color-text);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--color-primary);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .theme-toggle {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            padding: 0.5rem 0.75rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .theme-toggle:hover {
+            background: var(--color-primary);
+            color: var(--color-bg);
+            border-color: var(--color-primary);
+            transform: rotate(20deg);
+        }
+
+        /* Hero Section */
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            min-height: 70vh;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, var(--color-text) 0%, var(--color-primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        .hero-content .title {
+            font-size: 1.5rem;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+            font-weight: 600;
+            animation: slideInLeft 0.8s ease-out 0.1s both;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: var(--color-text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            animation: slideInLeft 0.8s ease-out 0.2s both;
+        }
+
+        .hero-tags {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+            animation: slideInLeft 0.8s ease-out 0.3s both;
+        }
+
+        .tag {
+            background: var(--color-primary);
+            color: var(--color-bg);
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            cursor: default;
+        }
+
+        .tag:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 140, 0, 0.3);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            animation: slideInLeft 0.8s ease-out 0.4s both;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--color-primary);
+            color: var(--color-bg);
+            border-color: var(--color-primary);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(255, 140, 0, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--color-primary);
+            border-color: var(--color-primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--color-primary);
+            color: var(--color-bg);
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: slideInRight 0.8s ease-out;
+        }
+
+        .profile-pic {
+            width: 300px;
+            height: 300px;
+            border-radius: 16px;
+            object-fit: cover;
+            border: 3px solid var(--color-primary);
+            box-shadow: 0 20px 50px rgba(255, 140, 0, 0.2);
+            transition: all 0.3s;
+        }
+
+        .profile-pic:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 30px 60px rgba(255, 140, 0, 0.3);
+        }
+
+        /* Sections */
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: var(--color-text);
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Experience Timeline */
+        .experience-container {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .experience-item {
+            margin-bottom: 3rem;
+            padding-left: 3rem;
+            position: relative;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            background: var(--color-primary);
+            border-radius: 50%;
+            border: 3px solid var(--color-bg);
+            box-shadow: 0 0 0 1px var(--color-border);
+            transition: all 0.3s;
+        }
+
+        .experience-item:hover::before {
+            transform: scale(1.5);
+            box-shadow: 0 0 0 3px var(--color-primary);
+        }
+
+        .experience-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--color-primary);
+        }
+
+        .experience-item .role {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--color-text);
+            margin-bottom: 0.25rem;
+        }
+
+        .experience-item .date {
+            font-size: 0.9rem;
+            color: var(--color-text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .experience-item p {
+            color: var(--color-text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background: var(--color-surface);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--color-border);
+            transition: all 0.3s;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--color-primary);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-card h3 {
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .skill-tag {
+            background: rgba(255, 140, 0, 0.1);
+            color: var(--color-primary);
+            padding: 0.4rem 0.9rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .skill-tag:hover {
+            background: rgba(255, 140, 0, 0.2);
+            transform: scale(1.1);
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--color-surface);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--color-border);
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--color-primary);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-header {
+            height: 150px;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+
+        .project-body {
+            padding: 2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-body h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+            color: var(--color-text);
+        }
+
+        .project-body p {
+            color: var(--color-text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            flex-grow: 1;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: auto;
+        }
+
+        .project-tag {
+            background: rgba(255, 140, 0, 0.1);
+            color: var(--color-primary);
+            padding: 0.3rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Certifications & Achievements */
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .achievement-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--color-surface);
+            border-radius: 10px;
+            border: 1px solid var(--color-border);
+            transition: all 0.3s;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .achievement-item:hover {
+            border-color: var(--color-primary);
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(255, 140, 0, 0.1);
+        }
+
+        .achievement-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .achievement-item h3 {
+            font-size: 1.1rem;
+            color: var(--color-text);
+            margin-bottom: 0.5rem;
+        }
+
+        .achievement-item p {
+            font-size: 0.9rem;
+            color: var(--color-text-secondary);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--color-surface);
+            border-top: 1px solid var(--color-border);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--color-bg);
+            border: 2px solid var(--color-border);
+            border-radius: 50%;
+            color: var(--color-text);
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--color-primary);
+            color: var(--color-bg);
+            border-color: var(--color-primary);
+            transform: translateY(-3px) rotate(10deg);
+        }
+
+        .footer-text {
+            color: var(--color-text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            animation: fadeIn 0.3s ease-out;
+            overflow-y: auto;
+        }
+
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            max-width: 700px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: slideUp 0.4s ease-out;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            right: 1.5rem;
+            top: 1rem;
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--color-text);
+            cursor: pointer;
+            transition: all 0.3s;
+            background: none;
+            border: none;
+            padding: 0;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-close:hover {
+            color: var(--color-primary);
+            transform: rotate(90deg);
+        }
+
+        .modal-header {
+            padding: 2rem 2rem 1rem 2rem;
+            border-bottom: 1px solid var(--color-border);
+            background: linear-gradient(135deg, rgba(255, 140, 0, 0.1), transparent);
+        }
+
+        .modal-header h2 {
+            margin: 0 0 0.5rem 0;
+            color: var(--color-text);
+            font-size: 1.8rem;
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        .summary-section {
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .summary-section h3 {
+            color: var(--color-primary);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .summary-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .summary-list li {
+            padding: 0.75rem 0;
+            color: var(--color-text-secondary);
+            border-bottom: 1px solid var(--color-border);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .summary-list li:last-child {
+            border-bottom: none;
+        }
+
+        .summary-list strong {
+            color: var(--color-text);
+            font-weight: 600;
+        }
+
+        .skill-matrix {
+            background: var(--color-bg);
+            border-radius: 10px;
+            padding: 1.5rem;
+            border: 1px solid var(--color-border);
+        }
+
+        .skill-row {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            align-items: start;
+        }
+
+        .skill-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .skill-label {
+            font-weight: 600;
+            color: var(--color-primary);
+            padding-top: 0.25rem;
+        }
+
+        .skill-value {
+            color: var(--color-text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .summary-action {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--color-border);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+
+            .profile-pic {
+                width: 250px;
+                height: 250px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .logo {
+                font-size: 1.3rem;
+            }
+
+            .nav-links {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .hero {
+                padding: 2rem 1rem;
+                min-height: auto;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .profile-pic {
+                width: 200px;
+                height: 200px;
+            }
+
+            section {
+                padding: 2rem 1rem;
+            }
+
+            section h2 {
+                font-size: 2rem;
+            }
+
+            .projects-grid,
+            .skills-grid,
+            .achievements-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .modal-content {
+                width: 95%;
+                max-height: 90vh;
+            }
+
+            .modal-header {
+                padding: 1.5rem 1.5rem 1rem 1.5rem;
+            }
+
+            .modal-header h2 {
+                font-size: 1.4rem;
+            }
+
+            .modal-body {
+                padding: 1.5rem;
+            }
+
+            .skill-row {
+                grid-template-columns: 100px 1fr;
+                gap: 0.75rem;
+            }
+
+            .skill-label {
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero-tags,
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .tag,
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .profile-pic {
+                width: 160px;
+                height: 160px;
+            }
+
+            section h2 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body data-theme="dark">
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="#" class="logo">Rajeev Varma</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#achievements">Expertise</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">☀️</button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="about">
+        <div class="hero-content">
+            <h1>Rajeev Varma</h1>
+            <p class="title">SQL Server DBA | MSSQL Expert | Performance Tuning Specialist</p>
+            <p class="hero-subtitle">4+ years of hands-on expertise in SQL Server 2017-2019 administration, high availability solutions, performance optimization, and disaster recovery. Specialized in AWS RDS, Always-On Availability Groups, and production database management at Infosys and Accenture.</p>
+            <div class="hero-tags">
+                <span class="tag">MSSQL DBA</span>
+                <span class="tag">Performance Tuning</span>
+                <span class="tag">AWS RDS</span>
+                <span class="tag">High Availability</span>
+                <span class="tag">Disaster Recovery</span>
+            </div>
+            <div class="cta-buttons">
+                <a href="#experience" class="btn btn-primary">View Experience</a>
+                <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/dfa3e950-65e7-4b7c-888a-1f37f3f5afd5" alt="Rajeev Varma - SQL Server DBA Professional Portrait" class="profile-pic">
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <h2>Professional Experience</h2>
+        <div class="experience-container">
+            <div class="experience-item">
+                <h3>Infosys Ltd.</h3>
+                <div class="role">SQL Server DBA</div>
+                <div class="date">August 2025 – Present | Bengaluru, India</div>
+                <p>Manage and maintain 24x7 production SQL Server environments (2017-2019 versions). Handle installation, configuration, monitoring, troubleshooting, and performance optimization. Execute disaster recovery activities, manage database security, and ensure SLA compliance for enterprise clients.</p>
+            </div>
+
+            <div class="experience-item">
+                <h3>Cognizant Technology Solutions</h3>
+                <div class="role">Technical Lead</div>
+                <div class="date">May 2025 – August 2025</div>
+                <p>Led change management initiatives and CAB meetings for database transformation projects. Coordinated deployment cycles and managed high-availability database infrastructure across multiple environments.</p>
+            </div>
+
+            <div class="experience-item">
+                <h3>Accenture</h3>
+                <div class="role">Infrastructure Transformation Analyst</div>
+                <div class="date">January 2022 – May 2025 | Project: Navitaire (USA)</div>
+                <p><strong>Database Management:</strong> Managed global airline client databases with expertise in SQL Server 2017-2019 performance tuning, index optimization, and query analysis. <strong>Deployment & Coordination:</strong> Coordinated weekly DBA deployments and release cycles for mission-critical systems. <strong>High Availability:</strong> Maintained always-on availability groups, administered clustering, and managed failover mechanisms with 99.9% uptime SLA. <strong>Multi-Site Support:</strong> Supported multi-site teams across North America, EMEA, and APAC regions for critical incidents and 24x7 production monitoring. <strong>Recovery & Strategy:</strong> Implemented comprehensive backup and disaster recovery strategies, DBCC consistency checks, and index rebuilds. <strong>Performance Optimization:</strong> Resolved critical deadlocks, locking issues, and optimized query execution plans for maximum efficiency. <strong>Team Development:</strong> Trained junior DBAs and supported migration activities, ensuring knowledge transfer and team capability building.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2>Technical Skills & Expertise</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3>🗄️ Database Administration</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">MS SQL Server 2017-2019</span>
+                    <span class="skill-tag">High Availability</span>
+                    <span class="skill-tag">Always-On AG</span>
+                    <span class="skill-tag">Backup & Restore</span>
+                    <span class="skill-tag">Disaster Recovery</span>
+                    <span class="skill-tag">Clustering</span>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <h3>⚡ Performance Tuning</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Query Optimization</span>
+                    <span class="skill-tag">Index Management</span>
+                    <span class="skill-tag">Statistics</span>
+                    <span class="skill-tag">DBCC Checks</span>
+                    <span class="skill-tag">Deadlock Resolution</span>
+                    <span class="skill-tag">Execution Plans</span>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <h3>☁️ Cloud & Infrastructure</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">AWS RDS</span>
+                    <span class="skill-tag">Azure Recovery Vault</span>
+                    <span class="skill-tag">Windows Server 2017/2019</span>
+                    <span class="skill-tag">Capacity Planning</span>
+                    <span class="skill-tag">Storage Management</span>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <h3>🛠️ Tools & Monitoring</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">SQL Server Management Studio</span>
+                    <span class="skill-tag">DataDog</span>
+                    <span class="skill-tag">ServiceNow</span>
+                    <span class="skill-tag">Configuration Manager</span>
+                    <span class="skill-tag">SQL Profiler</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise & Specializations -->
+    <section id="achievements">
+        <h2>Core Competencies</h2>
+        <div class="achievements-grid">
+            <div class="achievement-item">
+                <div class="achievement-icon">🚀</div>
+                <h3>Performance Tuning</h3>
+                <p>Expert in optimizing SQL Server queries, index management, and statistics for maximum database efficiency.</p>
+            </div>
+
+            <div class="achievement-item">
+                <div class="achievement-icon">🔄</div>
+                <h3>High Availability</h3>
+                <p>Specialized in Always-On Availability Groups, failover clustering, and 99.9% uptime infrastructure.</p>
+            </div>
+
+            <div class="achievement-item">
+                <div class="achievement-icon">🛡️</div>
+                <h3>Disaster Recovery</h3>
+                <p>Comprehensive backup strategies, recovery procedures, and business continuity planning expertise.</p>
+            </div>
+
+            <div class="achievement-item">
+                <div class="achievement-icon">📊</div>
+                <h3>Capacity Planning</h3>
+                <p>Proficient in disk management, storage expansion, and infrastructure scaling for growing databases.</p>
+            </div>
+
+            <div class="achievement-item">
+                <div class="achievement-icon">🔐</div>
+                <h3>Database Security</h3>
+                <p>User creation, permission assignment, authentication mode configuration, and security best practices.</p>
+            </div>
+
+            <div class="achievement-item">
+                <div class="achievement-icon">🌍</div>
+                <h3>Multi-Site Support</h3>
+                <p>Experience supporting global teams across North America, EMEA, and APAC regions for critical incidents.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Get In Touch</h2>
+        <div style="max-width: 600px; margin: 0 auto; text-align: center;">
+            <p style="font-size: 1.1rem; color: var(--color-text-secondary); margin-bottom: 2rem;">
+                I'm always interested in hearing about new opportunities and challenges in database management and optimization.
+            </p>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-bottom: 2rem;">
+                <a href="mailto:rajeevvarmajagathabi@gmail.com" class="btn btn-primary" style="flex: 1; min-width: 200px;">
+                    📧 Email Me
+                </a>
+                <a href="https://www.linkedin.com/in/j-rajeev-varma-1a6600155" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="flex: 1; min-width: 200px;">
+                    💼 LinkedIn Profile
+                </a>
+            </div>
+            <div style="background: var(--color-surface); padding: 2rem; border-radius: 12px; border: 1px solid var(--color-border);">
+                <p style="color: var(--color-text); font-weight: 600; margin-bottom: 0.5rem;">Phone (Click to Reveal)</p>
+                <button onclick="revealPhone()" id="phoneBtn" class="btn btn-primary" style="width: 100%; cursor: pointer;">
+                    📞 Click to Reveal Phone Number
+                </button>
+                <p id="phoneDisplay" style="display: none; color: var(--color-primary); font-size: 1.3rem; font-weight: 600; margin-top: 1rem; letter-spacing: 2px;">
+                    +91 8886202601
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Summary Modal -->
+    <div id="summaryModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeSummaryModal()">&times;</span>
+            <div class="modal-header">
+                <h2>Quick Summary for HR 📋</h2>
+                <p style="color: var(--color-text-secondary); margin: 0.5rem 0 0 0;">Key skills and unique strengths</p>
+            </div>
+            <div class="modal-body">
+                <div class="summary-section">
+                    <h3>🎯 Core Strengths</h3>
+                    <ul class="summary-list">
+                        <li><strong>4+ Years SQL DBA Experience:</strong> Production-level expertise with SQL Server 2017-2019</li>
+                        <li><strong>High Availability Expert:</strong> Always-On Availability Groups, Clustering, 99.9% uptime SLA</li>
+                        <li><strong>Performance Optimization Specialist:</strong> Query optimization, index management, deadlock resolution</li>
+                        <li><strong>Multi-Cloud Infrastructure:</strong> AWS RDS, Azure Recovery Vault, Windows Server administration</li>
+                    </ul>
+                </div>
+
+                <div class="summary-section">
+                    <h3>💼 Unique Professional Qualities</h3>
+                    <ul class="summary-list">
+                        <li><strong>Global Multi-Site Support:</strong> Managed critical incidents across North America, EMEA, and APAC regions</li>
+                        <li><strong>Leadership & Mentorship:</strong> Trained junior DBAs and led technical transformation initiatives</li>
+                        <li><strong>24/7 Production Management:</strong> Proven ability to manage mission-critical systems at enterprise scale</li>
+                        <li><strong>Fast Problem Solver:</strong> Quick diagnosis and mitigation of critical database issues</li>
+                    </ul>
+                </div>
+
+                <div class="summary-section">
+                    <h3>🚀 Technical Expertise Stack</h3>
+                    <div class="skill-matrix">
+                        <div class="skill-row">
+                            <span class="skill-label">Databases:</span>
+                            <span class="skill-value">MSSQL 2017-2019, AWS RDS, Azure Recovery Vault</span>
+                        </div>
+                        <div class="skill-row">
+                            <span class="skill-label">Performance:</span>
+                            <span class="skill-value">Query Optimization, Index Tuning, Execution Plans, DBCC Checks</span>
+                        </div>
+                        <div class="skill-row">
+                            <span class="skill-label">High Availability:</span>
+                            <span class="skill-value">Always-On AG, Clustering, Failover, Disaster Recovery</span>
+                        </div>
+                        <div class="skill-row">
+                            <span class="skill-label">Tools & Monitoring:</span>
+                            <span class="skill-value">SSMS, DataDog, ServiceNow, SQL Profiler</span>
+                        </div>
+                        <div class="skill-row">
+                            <span class="skill-label">Infrastructure:</span>
+                            <span class="skill-value">Windows Server, Capacity Planning, Storage Management</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="summary-section">
+                    <h3>⭐ What Sets Me Apart</h3>
+                    <ul class="summary-list">
+                        <li>✅ Proven track record with fortune 500 companies (Accenture client base, Infosys)</li>
+                        <li>✅ Expert in critical systems supporting millions of airline transactions (Navitaire project)</li>
+                        <li>✅ Strong communication skills with ability to translate technical concepts for stakeholders</li>
+                        <li>✅ Continuous learner - Always exploring new technologies and optimization techniques</li>
+                        <li>✅ Available for immediate remote opportunities worldwide</li>
+                    </ul>
+                </div>
+
+                <div class="summary-action">
+                    <a href="mailto:rajeevvarmajagathabi@gmail.com" class="btn btn-primary" style="width: 100%; text-align: center;">
+                        📧 Get In Touch for Interview
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div style="display: flex; gap: 1rem; justify-content: center; margin-bottom: 2rem; flex-wrap: wrap;">
+                <button onclick="openSummaryModal()" class="btn btn-primary" style="min-width: 180px;">
+                    📋 View Quick Summary
+                </button>
+                <div class="social-links" style="margin: 0;">
+                    <a href="mailto:rajeevvarmajagathabi@gmail.com" title="Email Rajeev Varma">✉️</a>
+                    <a href="https://www.linkedin.com/in/j-rajeev-varma-1a6600155" target="_blank" rel="noopener noreferrer" title="LinkedIn">in</a>
+                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" title="GitHub">⚙️</a>
+                </div>
+            </div>
+            <p class="footer-text">
+                © 2025 Rajeev Varma - SQL Server DBA. All rights reserved. <br>
+                Based in Bengaluru, India | Available for remote opportunities worldwide. <br>
+                <span style="font-size: 0.85rem; color: var(--color-text-secondary);">SQL DBA • MSSQL Administrator • Performance Tuning Expert</span>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Theme Toggle
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            document.querySelector('.theme-toggle').textContent = newTheme === 'light' ? '🌙' : '☀️';
+        }
+
+        // Load theme from storage (default to dark)
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        document.querySelector('.theme-toggle').textContent = savedTheme === 'light' ? '🌙' : '☀️';
+
+        // Function to reveal phone number
+        function revealPhone() {
+            const phoneDisplay = document.getElementById('phoneDisplay');
+            const phoneBtn = document.getElementById('phoneBtn');
+            if (phoneDisplay.style.display === 'none') {
+                phoneDisplay.style.display = 'block';
+                phoneBtn.textContent = '📞 ' + '+91 8886202601';
+                phoneBtn.style.pointerEvents = 'none';
+            }
+        }
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if (this.getAttribute('href') !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (!entry.target.classList.contains('fade-in-up')) {
+                        entry.target.classList.add('fade-in-up');
+                    }
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.experience-item, .skill-card, .achievement-item').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Preload profile image for better performance
+        const img = new Image();
+        img.src = 'https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/dfa3e950-65e7-4b7c-888a-1f37f3f5afd5';
+
+        // Summary Modal Functions
+        function openSummaryModal() {
+            const modal = document.getElementById('summaryModal');
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+            
+            // Animate summary sections with stagger effect
+            const sections = modal.querySelectorAll('.summary-section');
+            sections.forEach((section, index) => {
+                section.style.animationDelay = `${index * 0.1}s`;
+            });
+        }
+
+        function closeSummaryModal() {
+            const modal = document.getElementById('summaryModal');
+            modal.classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal on outside click
+        window.onclick = function(event) {
+            const modal = document.getElementById('summaryModal');
+            if (event.target === modal) {
+                closeSummaryModal();
+            }
+        }
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeSummaryModal();
+            }
+        });
+    </script>
+</body>
+</html>
